@@ -2,10 +2,29 @@ import 'cliente.dart';
 
 class contaCorrente {
   cliente titula;
-  int agencia = 145;
+  int _agencia = 145;
+
+  get agencia => _agencia;
+
+  set agencia(int novaAgencia) {
+    _agencia = novaAgencia;
+  }
+
   int conta;
   double saldo = 20.0;
   double chequeEspecial = -100.0;
+
+  get saldoObtem {
+    return saldo;
+  }
+
+  set saldoDefine(double novoSaldo) {
+    if (novoSaldo >= chequeEspecial) {
+      saldo = novoSaldo;
+    } else {
+      print('ERRO! Está adicionando um saldo menor que o cheque especial');
+    }
+  }
 
   bool verificaSaldo(double valor) {
     if (this.saldo - valor < chequeEspecial) {
