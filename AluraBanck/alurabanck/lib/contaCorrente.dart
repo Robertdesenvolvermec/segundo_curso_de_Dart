@@ -1,13 +1,29 @@
 import 'cliente.dart';
 
 class contaCorrente {
+  contaCorrente(int novaAgencia, int novaConta) {
+    if (novaAgencia > 0) {
+      this._agencia = novaAgencia;
+      this.conta = novaConta;
+      totalDeContasCorrentes++;
+    } else {
+      print('ERRO');
+      print('Conta ou Agência estão negativos');
+    }
+  }
+
+  static int totalDeContasCorrentes = 0;
+  
   cliente titula;
   int _agencia = 145;
-
   get agencia => _agencia;
 
   set agencia(int novaAgencia) {
-    _agencia = novaAgencia;
+    if (novaAgencia > 0) {
+      _agencia = novaAgencia;
+    } else {
+      print('ERRO');
+    }
   }
 
   int conta;
